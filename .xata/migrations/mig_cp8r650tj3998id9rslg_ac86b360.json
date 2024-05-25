@@ -1,0 +1,16 @@
+{
+  "id": "mig_cp8r650tj3998id9rslg",
+  "parentID": "mig_cp8r5qgtj3998id9rskg",
+  "checksum": "1:ac86b360cde5cb2b3f765c75bfb16d0325e2938b725a94f1c9cb66a5733bd063",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "channel",
+          "type": "string"
+        },
+        "table": "data_test"
+      }
+    }
+  ]
+}

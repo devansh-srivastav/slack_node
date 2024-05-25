@@ -1,3 +1,5 @@
+import { getXataClient } from 'src/xata.js'
+
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -20,6 +22,7 @@ app.post('/slack/events', async(req, res) => {
 
         try {
             // Add event data to the database
+            const xata = getXataClient();
             const record = await xata.db.data_test.create({
                 channel: channel,
                 user: user,

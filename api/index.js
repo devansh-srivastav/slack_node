@@ -13,7 +13,18 @@ app.post('/slack/events', (req, res) => {
         // Respond to URL verification challenge
         const challenge = payload.challenge;
         res.send(challenge);
-    } else {
+    } 
+    if (payload.type === 'event_callback' && payload.event.type === 'message' && payload.event.channel_type === 'im') {
+        // Extract relevant data from the event payload
+        const { channel, user, text, ts } = payload.event;
+
+        // Process the event data as needed
+        console.log(`New message in direct message channel ${channel} from user ${user}: ${text}`);
+
+        // Respond with a success message
+        res.json({ status: 'success' });
+    }
+    else {
         // Handle other Slack events here
         console.log('Received Slack event:', payload);
         res.json({ status: 'success' });
